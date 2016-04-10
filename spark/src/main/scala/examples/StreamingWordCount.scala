@@ -9,17 +9,11 @@ import org.apache.log4j.Level
 
 object StreamingWordCount {
    def main(args: Array[String]) {
-     Logger.getLogger("org").setLevel(Level.OFF)
-     Logger.getLogger("akka").setLevel(Level.OFF)
-
-
-
      val conf = new SparkConf().setMaster("local[2]").setAppName("Test Application")
      val ssc = new StreamingContext(conf, Seconds(5))
 
      // Create a DStream that will connect to hostname:port
      val lines = ssc.socketTextStream("localhost", 9999, StorageLevel.MEMORY_AND_DISK_SER)
-
 
      // Split each line into words
      val words = lines.flatMap(_.split(" "))

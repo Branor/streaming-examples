@@ -5,11 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object Test {
   def main(args: Array[String]) {
-    Logger.getLogger("org").setLevel(Level.OFF)
-    Logger.getLogger("akka").setLevel(Level.OFF)
-
-
-    val file = "spark/resources/data.txt"
+    val file = "spark/src/main/resources/data.txt"
     val conf = new SparkConf().setMaster("local[2]").setAppName("Test Application")
     val sc = new SparkContext(conf)
     val data = sc.textFile(file, 2).cache()
