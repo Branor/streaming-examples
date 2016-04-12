@@ -15,7 +15,7 @@ public class WordCountStreaming {
         // set up the execution environment
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStream<String> text = env.socketTextStream("localhost", 9999);
+        DataStream<String> text = env.socketTextStream("localhost", 1111);
 
         DataStream<Tuple2<String, Integer>> counts =
             // split up the lines in pairs (2-tuples) containing: (word,1)

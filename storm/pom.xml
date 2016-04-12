@@ -30,12 +30,17 @@
             <artifactId>twitter4j-stream</artifactId>
             <version>3.0.3</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.pmerienne</groupId>-->
+            <!--<artifactId>trident-ml</artifactId>-->
+            <!--<version>0.0.4</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
-            <version>LATEST</version>
+            <version>0.10.0</version>
             <!-- keep storm out of the jar-with-dependencies -->
-            <scope>system</scope>
+            <!--<scope>system</scope>-->
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.apache.storm</groupId>-->
@@ -82,6 +87,7 @@
                 <source>1.8</source>
                 <target>1.8</target>
             </configuration>
+            <version>3.5.1</version>
         </plugin>
 
         <!--
@@ -154,6 +160,7 @@
                     </goals>
                 </execution>
             </executions>
+            <version>1.7.1</version>
         </plugin>
 
         <plugin>
