@@ -54,10 +54,11 @@ public class WordCountTrident {
 
         cluster.submitTopology("test", conf, topology.build());
 
-        Thread.sleep(5000);
-
-        System.out.println("Count of the words [the, you, to, and] : " +
-                drpc.execute("words", "the you to and"));
+        for(int i=0; i< 5; i++) {
+            Thread.sleep(5000);
+            System.out.println("Count of the words [the, you, to, and] : " +
+                    drpc.execute("words", "the you to and"));
+        }
 
         System.in.read();
         cluster.shutdown();

@@ -23,7 +23,7 @@ public class WordCountStreaming {
                 // group by first item of the tuple
                 .keyBy(0)
                 // aggregate results in 5-second time windows
-                //.timeWindow(Time.seconds(5))
+                .timeWindow(Time.seconds(5))
                 // sum by the second item of the tuple
                 .sum(1);
 
