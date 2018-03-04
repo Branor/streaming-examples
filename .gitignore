@@ -7,3 +7,4 @@ target/
 .settings/
 bin/
 out/
+twitter4j.properties

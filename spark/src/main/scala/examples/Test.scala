@@ -1,6 +1,6 @@
 package examples
 
-import org.apache.log4j.{Level, Logger}
+//import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 
 object Test {

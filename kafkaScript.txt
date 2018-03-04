@@ -1,0 +1,18 @@
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TextLinesTopic 
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic WordsWithCountsTopic
+kafka-topics --list --zookeeper localhost:2181 
+
+# DELETE TOPICS
+kafka-topics --delete --zookeeper localhost:2181 --topic TextLinesTopic 
+kafka-topics --delete --zookeeper localhost:2181 --topic WordsWithCountsTopic
+
+kafka-console-producer --broker-list localhost:9092 --topic TextLinesTopic
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic TextLinesTopic --from-beginning
+
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic WordsWithCountsTopic --from-beginning
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic WordsWithCountsTopic --from-beginning --formatter kafka.tools.DefaultMessageFormatter  --property print.key=true --property print.value=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+
+curl http://localhost:1112/state/keyvalue/word-count/a
