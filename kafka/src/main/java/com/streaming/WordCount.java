@@ -47,8 +47,8 @@ public class WordCount {
         final StreamsBuilder builder = new StreamsBuilder();
 
         builder.<String, String>stream("TextLinesTopic")
-                .peek((k,v) -> System.out.println(v.toString()))
-                .flatMapValues(value -> Arrays.asList(value.toLowerCase(Locale.getDefault()).split("\\W+")))
+               .peek((k,v) -> System.out.println(v.toString()))
+               .flatMapValues(value -> Arrays.asList(value.toLowerCase(Locale.getDefault()).split("\\W+")))
                .groupBy((key, value) -> value)
                .count((Materialized)Materialized.as("counts-store").withCachingDisabled())
                .toStream()
